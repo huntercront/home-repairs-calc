@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Калькулятор ремонта</title>
+	<link rel="stylesheet" href="./assets/fonts/font.css">
+	<link rel="stylesheet" href="./assets/css/nulled.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+	<div class="calc-results">
+		<div class="container">
+			<div class="content">
+				<div class="calc-results-inner">
+					<div class="calc-results-total">
+						<span class="calc-total-lable">Итого:</span>
+						<div class="curent-cost-ineer">
+						<span class="calc-total-lable">От</span>
+							<span class="curent-cost">0</span>
+							₽
+					</div>
+					</div>
+					<button class="next-choose c-c"><div class="button-text">Далее</div> <div class="btn-icon c-c"><span class="icon-arrow-right" role="img" aria-label="Иконка далее"></span></div></button>
+					<div class="progress-line">
+						<div class="progress-line-inner"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<sectiob class="repair-calc">
+		<div class="container">
+			<div class="content">
+				<div class="rc-form">
+<div class="form-header">
+	<div class="form-header-text">
+		<h1 class="h1 calc-form-title">Калькулятор ремонта квартиры</h1>
+		<p class="calc-form-descr">Укажите параметры вашей квартиры, затем в конструкторе выберите планируемый дизайн квартиры, далее укажите необходимые дополнительные опции, если они вам нужны. В итоге, потратив несколько минут, вы узнаете предварительную цену капитального ремонта вашей квартиры с понравившимся дизайном.</p>
+	</div>
+	<div class="form-header-img">
+
+	</div>
+
+</div>
+					<div class="rc-form-inner">
+<div class="input-wrapper">
+<label for="spacesize">Площадь квартиры</label>
+<input id="spacesize" class="space-size" type="number" placeholder="м²" min="1" max="1000" data-price="1500" data-prev="0">
+</div>
+
+<div class="input-wrapper">
+	<label for="dors-total">Количество дверей</label>
+	<div class="input-number c-s">
+	<button class="remove c-c">-</button>
+	<input id="dors-total" class="total-doors input-number" type="number" min="1" max="10" value="1">
+	<button class="add c-c">+</button>
+</div>
+	</div>
+
+<fieldset>
+	<legend class="radio-title">Количество комнат</legend> 
+
+	<div class="fieldset-inner c-s">
+	<div class="form-radio">
+		<input id="studia" type="radio" name="answer" value="studia" required="" checked>
+		<label for="studia">
+			<div class="label-inner c-c"><span class="icon-airline"></span></div>
+			Студия</label>
+	</div>
+
+	<div class="form-radio">
+		<input id="room-1" type="radio" name="answer" value="room-1" required="" checked>
+		<label for="room-1">
+			<div class="label-inner c-c"><span class="icon-airline"></span></div>
+			1 </label>
+	</div>
+
+	<div class="form-radio">
+		<input id="room-2" type="radio" name="answer" value="room-2" required="" checked>
+		<label for="room-2">
+			<div class="label-inner c-c"><span class="icon-airline"></span></div>
+			2 </label>
+	</div>
+
+	<div class="form-radio">
+		<input id="room-3" type="radio" name="answer" value="room-3" required="" checked>
+		<label for="room-3">
+			<div class="label-inner c-c"><span class="icon-airline"></span></div>
+			3 </label>
+	</div>
+
+	<div class="form-radio">
+		<input id="room-4" type="radio" name="answer" value="room-4" required="" checked>
+		<label for="room-4">
+			<div class="label-inner c-c"><span class="icon-airline"></span></div>
+			4 </label>
+	</div>
+
+	<div class="form-radio">
+		<input id="room-5" type="radio" name="answer" value="room-5" required="" checked>
+		<label for="room-5">
+			<div class="label-inner c-c"><span class="icon-airline"></span></div>
+			5 </label>
+	</div>
+</div>
+</fieldset>
+
+<div class="form-check-wrapper">
+<div class="form-check">
+	<input type="checkbox" name="" id="newbuilding" data-price="12000">
+	<label for="newbuilding"><div class="label-text">Нужно возвести стены</div></label>
+</div>
+</div>
+
+<div class="form-check-wrapper">
+<div class="form-check">
+	<input type="checkbox" name="" id="oldbuilding"  data-price="24000">
+	<label for="oldbuilding"><div class="label-text">Вторичное жильё. Нужен демонтаж.</div></label>
+</div>
+</div>
+
+</div>
+				</div>
+				<div class="rc-presets">
+
+				</div>
+				<div class="rc-progress">
+					<div class="progress-inner">
+						<button class="progress-btn active-step" data-step="1">
+							<div class="btn-iner c-c">
+								<div class="progress-btn-icon c-c">
+									<img src="./assets/icons-svg/wall.svg" alt="">
+								</div>
+								Стены
+							</div>
+						</button>
+
+						<button class="progress-btn" data-step="2">	
+							<div class="btn-iner c-c">
+								<div class="progress-btn-icon c-c">
+									<img src="./assets/icons-svg/floor.svg" alt=""></div>
+									Напольное покрытие
+							</div>
+						</button>
+						<button class="progress-btn" data-step="3">
+							
+							<div class="btn-iner c-c"><div class="progress-btn-icon c-c"><img src="./assets/icons-svg/door.svg" alt=""></div>Двери</div></button>
+						<button class="progress-btn" data-step="4"><div class="btn-iner c-c"><div class="progress-btn-icon c-c"><img src="./assets/icons-svg/bathroom.svg" alt=""></div>Ванная</div></button>
+					</div>
+				</div>
+				<div class="rc-builder">
+					<div class="builder-inner">
+						<div class="builder-step">
+							<div class="builder-options-inner">
+						<div class="builder-options">
+							<div class="texture-options" data-complite="false">
+							<h3 class="buillder-title">Обои под покраску</h3>
+							<p class="buillder-descr">Идеально подходят если вы любите обновлять свой интерьер</p>
+							<div class="options-outer">
+
+							<div class="single-option">
+								<div class="single-option-inner" data-price="20000" data-wall="./assets/img/wall/wall-option-texture-1.png">
+								<div class="option-img">
+									<img src="./assets/img/wall/miniature/miniature-option-1.jpg" alt="">
+									<div class="adv-descr">
+										<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Виниловые обои высокого качества"></span>
+									</div>
+									<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+								</div>
+								<div class="options-descr">
+									<h4>Обои Marburg</h4>
+									<p>Название рисунка обооев</p>
+								</div>
+							</div>
+							</div>
+
+							<div class="single-option" >
+								<div class="single-option-inner" data-price="25000" data-wall="./assets/img/wall/wall-option-texture-2.png">
+								<div class="option-img">
+									<img src="./assets/img/wall/miniature/miniature-options-2.jpg" alt="">
+									<div class="adv-descr">
+										<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Виниловые обои высокого качества"></span>
+									</div>
+									<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+								</div>
+								<div class="options-descr">
+									<h4>Обои Marburg</h4>
+									<p>Название</p>
+								</div>
+							</div>
+							</div>
+						</div>
+						<h3 class="buillder-title">Гладкие стены</h3>
+						<p class="buillder-descr">Идеально гладкие, шпаклеванные в несколько слоев, стены.</p>
+						<div class="options-outer">
+
+							<div class="single-option" >
+								<div class="single-option-inner" data-price="10000" data-wall="./assets/img/wall/wall-option-texture-3.png">
+								<div class="option-img">
+									<img src="./assets/img/wall/miniature/miniature-option-3.jpg" alt="">
+									<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+								</div>
+								<div class="options-descr">
+									<h4>Гладкие стены</h4>
+									<p>Подготовленные под покраску</p>
+								</div>
+							</div>
+							</div>
+						</div>
+
+						<h3 class="buillder-title">Гладкие обои под покраску</h3>
+						<p class="buillder-descr">Плотные обои. Визуально, как стены под покраску.</p>
+						<div class="options-outer">
+
+							<div class="single-option" data-price="50000">
+								<div class="single-option-inner">
+								<div class="option-img">
+									<img src="./assets/img/wall/miniature/miniature-option-3.jpg" alt="">
+								</div>
+								<div class="options-descr">
+									<h4>Гладкие обои</h4>
+									<p>Подготовленные под покраску</p>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+
+
+
+						<div class="color-variables" data-complite="false">
+							<button class="back-btn c-c" aria-label="Вернуться  к выбору стен"><div class="btn-icon c-c">	<span class="icon-chevron-left" role="img" aria-label="Иконка назад"></span></div>Назад</button>
+							<h3 class="buillder-title">Оттенок краски</h3>
+							<p class="buillder-descr">Иникальный цвет который подходитименно вам</p>
+							<div class="options-outer">
+	
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#F6F6F6"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>White</h4>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#E9EADE"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>F450</h4>
+										<p>F450</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#E8E4DF"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Облако</h4>
+										<p>Y481</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#F8EBC1"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>G304</h4>
+										<p>G304</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#DBDFE1"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Бунгало</h4>
+										<p>G500</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#E9DED7"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>F474</h4>
+										<p>F474</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#DBDFE1"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Y426</h4>
+										<p>Y426</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#E5DDD4"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Тальк</h4>
+										<p>Тальк</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-color="true">
+									<div class="option-img">
+										<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0 0H249V156H0V0Z" fill="#D9D6CE"/>
+											</svg>
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>G487</h4>
+										<p>G487</p>
+									</div>
+								</div>
+								</div>
+
+							
+
+							</div>
+						</div>
+
+			
+						<div class="flore-options" data-complite="false">
+							<h3 class="buillder-title">Ламинат</h3>
+							<p class="buillder-descr">Однополосный ламинат Quick-Step (Бельгия). Создает впечатление натурального деревянного настила.</p>
+							<div class="options-outer">
+	
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="450" data-flore="./assets/img/floor/flore-option-2.png">
+									<div class="option-img">
+									<img src="./assets/img/floor/miniature/miniature-option-2.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+											<div class="adv-descr">
+												<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Класс 32"></span>
+											</div>
+									</div>
+									<div class="options-descr">
+										<h4>Темный ламинат</h4>
+										<p>Дикий кобанчик</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="420" data-flore="./assets/img/floor/flore-option-1.png">
+									<div class="option-img">
+									<img src="./assets/img/floor/miniature/miniature-option-1.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+											<div class="adv-descr">
+												<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Класс 32"></span>
+											</div>
+									</div>
+									<div class="options-descr">
+										<h4>Светлый ламинат</h4>
+										<p>Домашний кобанчик</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="333" data-flore="./assets/img/floor/flore-option-3.png">
+									<div class="option-img">
+									<img src="./assets/img/floor/miniature/miniature-option-3.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+											<div class="adv-descr">
+												<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Класс 32"></span>
+											</div>
+									</div>
+									<div class="options-descr">
+										<h4>Ламинат Egger</h4>
+										<p>Дуб ингирия натуральный с фаской</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="200" data-flore="./assets/img/floor/flore-option-4.png">
+									<div class="option-img">
+									<img src="./assets/img/floor/miniature/miniature-option-4.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+											<div class="adv-descr">
+												<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Класс 32"></span>
+											</div>
+									</div>
+									<div class="options-descr">
+										<h4>Ламинат Kronospan</h4>
+										<p>Дуб гренландский</p>
+									</div>
+								</div>
+								</div>
+						</div>
+
+						<h3 class="buillder-title">Плитка ПВХ</h3>
+						<p class="buillder-descr">Плотное и гибкое модульное покрытие.</p>
+						<div class="options-outer">
+	
+							<div class="single-option option-wide">
+								<div class="single-option-inner" data-price="1150" data-flore="./assets/img/floor/flore-option-5.png">
+								<div class="option-img">
+								<img src="./assets/img/floor/miniature/miniature-option-5.jpg" alt="">
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Прочный современный материал"></span>
+										</div>
+								</div>
+								<div class="options-descr">
+									<h4>Плитка ПВХ KronoXonic Sundance</h4>
+									<p>танец солнца</p>
+								</div>
+							</div>
+							</div>
+
+							<div class="single-option option-wide">
+								<div class="single-option-inner" data-price="1250" data-flore="./assets/img/floor/flore-option-6.png">
+								<div class="option-img">
+								<img src="./assets/img/floor/miniature/miniature-option-6.jpg" alt="">
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Класс 32"></span>
+										</div>
+								</div>
+								<div class="options-descr">
+									<h4>Плитка ПВХ Tarkett</h4>
+									<p>Дуб темно-коричневый</p>
+								</div>
+							</div>
+							</div>
+
+
+						</div>
+
+
+					</div>
+
+
+					<div class="door-options" data-complite="false">
+						<h3 class="buillder-title">Двери</h3>
+						<p class="buillder-descr">Начиная от класических и заканчивая современными</p>
+						<div class="options-outer">
+
+							<div class="single-option option-wide">
+								<div class="single-option-inner" data-price="4500" data-door="./assets/img/doors/door-option-1.png">
+								<div class="option-img">
+								<img src="./assets/img/doors/miniature/miniature-option-1.jpg" alt="">
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+								</div>
+								<div class="options-descr">
+									<h4>VellDoris</h4>
+									<p>Белая глухая окрашенная</p>
+								</div>
+							</div>
+							</div>
+
+
+							<div class="single-option option-wide">
+								<div class="single-option-inner" data-price="3450" data-door="./assets/img/doors/door-option-2.png">
+								<div class="option-img">
+								<img src="./assets/img/doors/miniature/miniature-option-2.jpg" alt="">
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+								</div>
+								<div class="options-descr">
+									<h4>Verda</h4>
+									<p>Дуб дымчатый глухое экошпон</p>
+								</div>
+							</div>
+							</div>
+
+							<div class="single-option option-wide">
+								<div class="single-option-inner" data-price="7450" data-door="./assets/img/doors/door-option-3.png">
+								<div class="option-img">
+								<img src="./assets/img/doors/miniature/miniature-option-3.jpg" alt="">
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="стильное и современное рещение"></span>
+										</div>
+								</div>
+								<div class="options-descr">
+									<h4>VellDoris Vision</h4>
+									<p>Bенге со стеклом экошпон</p>
+								</div>
+							</div>
+							</div>
+
+
+
+
+
+
+					</div>
+
+
+				</div>
+
+
+
+						</div>
+						<div class="color-select">
+							<button class="color-show c-c"><div class="btn-icon c-c"><span class="icon-color" role="img" aria-label="Иконка назад"></span></div><div class="btn-text">Вырать цвет</div></button>
+						</div>
+					</div>
+						<div class="builder-render">
+							<div class="builder-render-bg" style="background: #fefefe;"></div>
+							<img src="./assets/img/floor/flore-option-default.png" alt="" class="flore-texture">
+							<img src="./assets/img/render/flore-shadow.png" alt="" class="flore-shadow">
+							<img src="./assets/img/wall/wall-option-default.jpg" alt="" class="wall-texture">
+							<img src="./assets/img/render/plinth-shadow.png" alt="" class="plinth-shadow">
+							<img src="./assets/img/plinth/plinth-option-defailt.svg" alt="plinth-texture" class="plinth-texture">
+							<img src="./assets/img/render/door-shadow.png" alt="" class="door-shadow">
+							<img src="./assets/img/doors/door-option-defailt.png" alt="" class="door-texture">
+							<img src="./assets/img/render/lamp.png" alt="" class="design-lamp">
+							<img src="./assets/img/render/flo.png" alt="" class="design-flo">
+							<img src="./assets/img/render/sofa.png" alt="" class="design-sofa">
+							<img src="./assets/img/render/light.png" alt="" class="design-light">
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</sectiob>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="./assets/js/builder.js"></script>
+
+</body>
+</html>
