@@ -40,7 +40,7 @@ function readiCalc(element){
 // 	$('.flore-texture').attr('src',$(this).attr('data-flore'))
 // })
 
-$('.builder-options').height($('.flore-texture').height()+'px')
+$('.builder-options').height($('.placeholder').height()+'px')
 
 
 
