@@ -1,5 +1,18 @@
 
 $(document).ready(function() {
+
+	function getScrollBarWidth () {
+    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+    $outer.remove();
+    return 100 - widthWithScroll;
+};
+var scrollWidth = getScrollBarWidth ();
+console.log(scrollWidth)
+
+$('body').css('padding-right',getScrollBarWidth () + 'px');
+
+
 	var curentStage = 1;
 
 function costUpdate (oldPrice, newPrice){
@@ -82,7 +95,18 @@ if(typeof florePriceOld == 'undefined'){
 $('[data-door]').on('click',function(e){
 	$('.door-texture').attr('src',$(this).attr('data-door'))
 
-	costUpdate($('[data-door].selected').attr('data-price'),$(this).attr('data-price'))
+	var doorPriceOld = $('[data-door].selected').attr('data-price')
+	var doorPriceNew = $(this).attr('data-price')
+	var doorTotal = parseInt($('.total-doors').val());
+	console.log(doorTotal)
+	console.log(doorPriceOld)
+
+	if(typeof doorPriceOld == 'undefined'){
+		costUpdate( 0 , parseInt(doorPriceNew) * doorTotal)
+	}else{
+		costUpdate( parseInt(doorPriceOld) * doorTotal , parseInt(doorPriceNew) * doorTotal)
+	}
+
 	$('[data-door]').removeClass('selected')
 	$(this).addClass('selected');
 
@@ -162,4 +186,20 @@ $('.space-size').on('change',function(e){
 		$(this).attr('data-prev', $(this).val())
 
 })
+
+
+$('.start-design').on('click',function(e){
+	if($('.space-size').val()!=''){
+		$('.intro-calc').removeClass('intro-show')
+		$('body').removeClass('calc-init');
+		$('body').css('padding-right',0 + 'px');
+	}else{
+		$('.space-size').siblings('.error-tooltip').addClass('error-show')
+		$('.space-size').siblings('.error-tooltip').find('.eroror-message').text($('.space-size').attr('data-error'))
+		setTimeout(function () {
+			$('.space-size').siblings('.error-tooltip').removeClass('error-show')
+	}, 3000)
+	}
+})
+
 });

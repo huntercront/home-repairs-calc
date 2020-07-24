@@ -9,7 +9,122 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="calc-init">
+
+
+<section class="intro-calc intro-show">
+	<div class="container">
+		<div class="content">
+	<div class="rc-form">
+		<div class="form-header">
+			<div class="form-header-text">
+				<div class="header-text-inner">
+				<h1 class="h1 calc-form-title">Калькулятор ремонта квартиры</h1>
+				<p class="calc-form-descr">Укажите параметры вашей квартиры, затем в конструкторе выберите планируемый дизайн квартиры, далее укажите необходимые дополнительные опции, если они вам нужны. В итоге, потратив несколько минут, вы узнаете предварительную цену капитального ремонта вашей квартиры с понравившимся дизайном.</p>
+		
+				<div class="rc-form-inner">
+					<div class="requared-inputs">
+					<div class="input-wrapper">
+						<div class="error-tooltip">
+							<span class="eroror-message">
+								Введите площадь для более точного рассчета
+							</span>
+						</div>
+					<label for="spacesize">Площадь квартиры</label>
+					<input id="spacesize" class="space-size" type="number" placeholder="м²" min="1" max="1000" data-price="1500" data-prev="0" data-error="Введите площадь для более точного рассчета">
+					</div>
+					
+					<div class="input-wrapper">
+						<label for="dors-total">Количество дверей</label>
+						<div class="input-number c-s">
+						<button class="remove c-c">-</button>
+						<input id="dors-total" class="total-doors input-number" type="number" min="1" max="10" value="1">
+						<button class="add c-c">+</button>
+					</div>
+						</div>
+					</div>
+					
+					<fieldset>
+						<legend class="radio-title">Количество комнат</legend> 
+					
+						<div class="fieldset-inner c-s">
+						<div class="form-radio">
+							<input id="studia" type="radio" name="answer" value="studia" required="" checked>
+							<label for="studia">
+								<div class="label-inner c-c"><span class="icon-airline"></span></div>
+								Студия</label>
+						</div>
+					
+						<div class="form-radio">
+							<input id="room-1" type="radio" name="answer" value="room-1" required="" checked>
+							<label for="room-1">
+								<div class="label-inner c-c"><span class="icon-airline"></span></div>
+								1 </label>
+						</div>
+					
+						<div class="form-radio">
+							<input id="room-2" type="radio" name="answer" value="room-2" required="" checked>
+							<label for="room-2">
+								<div class="label-inner c-c"><span class="icon-airline"></span></div>
+								2 </label>
+						</div>
+					
+						<div class="form-radio">
+							<input id="room-3" type="radio" name="answer" value="room-3" required="" checked>
+							<label for="room-3">
+								<div class="label-inner c-c"><span class="icon-airline"></span></div>
+								3 </label>
+						</div>
+					
+						<div class="form-radio">
+							<input id="room-4" type="radio" name="answer" value="room-4" required="" checked>
+							<label for="room-4">
+								<div class="label-inner c-c"><span class="icon-airline"></span></div>
+								4 </label>
+						</div>
+					
+						<div class="form-radio">
+							<input id="room-5" type="radio" name="answer" value="room-5" required="" checked>
+							<label for="room-5">
+								<div class="label-inner c-c"><span class="icon-airline"></span></div>
+								5 </label>
+						</div>
+					</div>
+					</fieldset>
+					
+					<div class="form-check-wrapper">
+					<div class="form-check">
+						<input type="checkbox" name="" id="newbuilding" data-price="12000">
+						<label for="newbuilding"><div class="label-text">Нужно возвести стены</div></label>
+					</div>
+					</div>
+					
+					<div class="form-check-wrapper">
+					<div class="form-check">
+						<input type="checkbox" name="" id="oldbuilding"  data-price="24000">
+						<label for="oldbuilding"><div class="label-text">Вторичное жильё. Нужен демонтаж.</div></label>
+					</div>
+					</div>
+					
+					<button class="start-design">Создать свой дизайн</button>
+					</div>
+			</div>
+			</div>
+			<div class="form-header-img">
+		<div class="header-img-inner">
+		<img src="./assets/img/hero/hero-img.png" alt="">
+		</div>
+			</div>
+		
+		</div>
+		
+						</div>
+					</div>
+		
+				</div>
+
+</section>
+
 
 	<div class="calc-results">
 		<div class="container">
@@ -34,96 +149,7 @@
 	<sectiob class="repair-calc">
 		<div class="container">
 			<div class="content">
-				<div class="rc-form">
-<div class="form-header">
-	<div class="form-header-text">
-		<h1 class="h1 calc-form-title">Калькулятор ремонта квартиры</h1>
-		<p class="calc-form-descr">Укажите параметры вашей квартиры, затем в конструкторе выберите планируемый дизайн квартиры, далее укажите необходимые дополнительные опции, если они вам нужны. В итоге, потратив несколько минут, вы узнаете предварительную цену капитального ремонта вашей квартиры с понравившимся дизайном.</p>
-	</div>
-	<div class="form-header-img">
 
-	</div>
-
-</div>
-					<div class="rc-form-inner">
-<div class="input-wrapper">
-<label for="spacesize">Площадь квартиры</label>
-<input id="spacesize" class="space-size" type="number" placeholder="м²" min="1" max="1000" data-price="1500" data-prev="0">
-</div>
-
-<div class="input-wrapper">
-	<label for="dors-total">Количество дверей</label>
-	<div class="input-number c-s">
-	<button class="remove c-c">-</button>
-	<input id="dors-total" class="total-doors input-number" type="number" min="1" max="10" value="1">
-	<button class="add c-c">+</button>
-</div>
-	</div>
-
-<fieldset>
-	<legend class="radio-title">Количество комнат</legend> 
-
-	<div class="fieldset-inner c-s">
-	<div class="form-radio">
-		<input id="studia" type="radio" name="answer" value="studia" required="" checked>
-		<label for="studia">
-			<div class="label-inner c-c"><span class="icon-airline"></span></div>
-			Студия</label>
-	</div>
-
-	<div class="form-radio">
-		<input id="room-1" type="radio" name="answer" value="room-1" required="" checked>
-		<label for="room-1">
-			<div class="label-inner c-c"><span class="icon-airline"></span></div>
-			1 </label>
-	</div>
-
-	<div class="form-radio">
-		<input id="room-2" type="radio" name="answer" value="room-2" required="" checked>
-		<label for="room-2">
-			<div class="label-inner c-c"><span class="icon-airline"></span></div>
-			2 </label>
-	</div>
-
-	<div class="form-radio">
-		<input id="room-3" type="radio" name="answer" value="room-3" required="" checked>
-		<label for="room-3">
-			<div class="label-inner c-c"><span class="icon-airline"></span></div>
-			3 </label>
-	</div>
-
-	<div class="form-radio">
-		<input id="room-4" type="radio" name="answer" value="room-4" required="" checked>
-		<label for="room-4">
-			<div class="label-inner c-c"><span class="icon-airline"></span></div>
-			4 </label>
-	</div>
-
-	<div class="form-radio">
-		<input id="room-5" type="radio" name="answer" value="room-5" required="" checked>
-		<label for="room-5">
-			<div class="label-inner c-c"><span class="icon-airline"></span></div>
-			5 </label>
-	</div>
-</div>
-</fieldset>
-
-<div class="form-check-wrapper">
-<div class="form-check">
-	<input type="checkbox" name="" id="newbuilding" data-price="12000">
-	<label for="newbuilding"><div class="label-text">Нужно возвести стены</div></label>
-</div>
-</div>
-
-<div class="form-check-wrapper">
-<div class="form-check">
-	<input type="checkbox" name="" id="oldbuilding"  data-price="24000">
-	<label for="oldbuilding"><div class="label-text">Вторичное жильё. Нужен демонтаж.</div></label>
-</div>
-</div>
-
-</div>
-				</div>
 				<div class="rc-presets">
 
 				</div>
@@ -577,6 +603,7 @@
 							<img src="./assets/img/render/flo.png" alt="" class="design-flo">
 							<img src="./assets/img/render/sofa.png" alt="" class="design-sofa">
 							<img src="./assets/img/render/light.png" alt="" class="design-light">
+							<button class="zoom-button c-c"><div class="btn-icon c-c"><span class="icon-maximize-2" role="img" aria-label="Иконка назад"></span></div></button>
 						</div>
 					</div>
 					</div>
