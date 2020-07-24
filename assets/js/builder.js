@@ -39,8 +39,11 @@ function readiCalc(element){
 // $('[data-step]').on('click',function(e){
 // 	$('.flore-texture').attr('src',$(this).attr('data-flore'))
 // })
+$(".flore-texture").on('load',function(){
+	$('.builder-options').height($('.flore-texture').height()+'px')
+	console.log('loaded', $('.flore-texture').height())
+});
 
-$('.builder-options').height($('.placeholder').height()+'px')
 
 
 

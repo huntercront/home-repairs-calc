@@ -445,6 +445,7 @@ outline: #FFF0E2;
 }
 .placeholder{
 	width: 100%;
+	height: auto;
 }
 .builder-render-bg{
 	width: 100%;
