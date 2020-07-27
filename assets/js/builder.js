@@ -101,8 +101,7 @@ $('[data-door]').on('click',function(e){
 	var doorPriceOld = $('[data-door].selected').attr('data-price')
 	var doorPriceNew = $(this).attr('data-price')
 	var doorTotal = parseInt($('.total-doors').val());
-	console.log(doorTotal)
-	console.log(doorPriceOld)
+	
 
 	if(typeof doorPriceOld == 'undefined'){
 		costUpdate( 0 , parseInt(doorPriceNew) * doorTotal)
@@ -121,21 +120,57 @@ $('[data-door]').on('click',function(e){
 
 
 
+$('[data-plinth]').on('click',function(e){
+	$('.plinth-texture').attr('src',$(this).attr('data-plinth'))
+
+	// var doorPriceOld = $('[data-plinth].selected').attr('data-price')
+	// var doorPriceNew = $(this).attr('data-price')
+	// var doorTotal = parseInt($('.total-doors').val());
+	
+
+	// if(typeof doorPriceOld == 'undefined'){
+	// 	costUpdate( 0 , parseInt(doorPriceNew) * doorTotal)
+	// }else{
+	// 	costUpdate( parseInt(doorPriceOld) * doorTotal , parseInt(doorPriceNew) * doorTotal)
+	// }
+
+	$('[data-plinth]').removeClass('selected')
+	$(this).addClass('selected');
+
+	if($('.plinth-options').attr('data-complite')=='false'){
+		$('.progress-line-inner').css('width', readiCalc(curentStage) + 25 + '%');
+		$('.plinth-options').attr('data-complite','true')
+	}
+})
+
+
+
+
 
 $('[data-step]').on('click',function(e){
 	$('[data-step]').removeClass('active-step')
 	if($(this).attr('data-step')==2){
-		$('.flore-options').addClass('select-flore')
-		$('.door-options').removeClass('select-door')
+		$('.flore-options').addClass('select-flore');
+		$('.door-options').removeClass('select-door');
+		$('.plinth-options').removeClass('select-plinth')
 
 	}
 	if($(this).attr('data-step')==1){
-		$('.flore-options').removeClass('select-flore')
-		$('.door-options').removeClass('select-door')
+		$('.flore-options').removeClass('select-flore');
+		$('.door-options').removeClass('select-door');
+		$('.plinth-options').removeClass('select-plinth')
 	}
 	if($(this).attr('data-step')==3){
-		$('.door-options').addClass('select-door')
-		$('[data-step=3] .active-step').removeClass('not-selected')
+		$('.door-options').addClass('select-door');
+		$('[data-step=3] .active-step').removeClass('not-selected');
+		$('.plinth-options').removeClass('select-plinth')
+	}
+
+	if($(this).attr('data-step')==4){
+		$('.plinth-options').addClass('select-plinth')
+		$('.flore-options').removeClass('select-flore')
+		$('.door-options').removeClass('select-door')
+		$('[data-step=4] .active-step').removeClass('not-selected')
 	}
 	$(this).addClass('active-step')
 })

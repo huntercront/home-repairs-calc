@@ -818,3 +818,24 @@ transform: scale(0.9);
 .rc-presets{
 	margin-top: 3rem;
 }
+
+/* plinth-select */
+.plinth-options{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: inherit;
+	overflow-y: auto;
+	transform: translate(-100%,0);
+	transition: 200ms ease-in;
+	background: #ffffff;
+	overflow-x: hidden;
+	padding-top: 0.75rem;
+	padding-left: 1.5rem;
+	padding-right: 1.25rem;
+	z-index: 260;
+}
+.plinth-options.select-plinth{
+	transform: translate(0%,0);
+}
