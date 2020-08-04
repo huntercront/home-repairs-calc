@@ -13,7 +13,20 @@ console.log(scrollWidth)
 $('body').css('padding-right',getScrollBarWidth () + 'px');
 
 
-	var curentStage = 1;
+	window.curentStage = 1;
+	$('.next-choose').on('click',function(e){
+
+		if(window.curentStage < $('[data-room]').length){
+		$('[data-room='+window.curentStage+']').addClass('hiden-step');
+		$('[data-room='+window.curentStage+']').attr('data-active',false)
+		window.curentStage++;
+		console.log(window.curentStage)
+		$('[data-room='+window.curentStage+']').removeClass('hiden-step');
+		$('[data-room='+window.curentStage+']').attr('data-active',true)
+	}
+	
+	})
+
 
 function costUpdate (oldPrice, newPrice){
 	var curentPrice = parseInt($('.curent-cost').text());
@@ -31,16 +44,11 @@ function costUpdate (oldPrice, newPrice){
 	});
 }
 
-function readiCalc(element){
- return	($('.progress-line-inner').width() / $('.progress-line-inner').parent().width() * 100);
-}
 
-	var activeStep = 1
-// $('[data-step]').on('click',function(e){
-// 	$('.flore-texture').attr('src',$(this).attr('data-flore'))
-// })
+
+
 $(".flore-texture").on('load',function(){
-	$('.builder-options').height($('.flore-texture').height()+'px')
+	$('.builder-options').css('height',$('.flore-texture').height()+'px')
 	console.log('loaded', $('.flore-texture').height())
 });
 
@@ -48,8 +56,8 @@ $(".flore-texture").on('load',function(){
 
 
 $('[data-color]').on('click',function(e){
-	$('.builder-render-bg').css('background',$(this).find('.option-img > svg > path').attr('fill'))
-	$('[data-color]').removeClass('selected')
+	$('[data-room='+window.curentStage+'] .builder-render-bg').css('background',$(this).find('.option-img > svg > path').attr('fill'))
+	$('[data-room='+window.curentStage+'] [data-color]').removeClass('selected')
 	$(this).addClass('selected');
 
 })
@@ -88,11 +96,48 @@ if(typeof florePriceOld == 'undefined'){
 	$('[data-flore]').removeClass('selected')
 	$(this).addClass('selected');
 
-	if($('.flore-options').attr('data-complite')=='false'){
-		$('.progress-line-inner').css('width', readiCalc(curentStage) + 25 + '%');
-		$('.flore-options').attr('data-complite','true')
-	}
 })
+
+$('[data-kitchen-flore]').on('click',function(e){
+	$('.kithen-flore-texture').attr('src',$(this).attr('data-kitchen-flore'))
+	
+	//вычисление цены пола 
+var florePriceOld = $('[data-kitchen-flore].selected').attr('data-price')
+var florePriceNew = $(this).attr('data-price')
+var floreSize = parseInt($('.space-size').val());
+if(typeof florePriceOld == 'undefined'){
+	costUpdate( 0 , parseInt(florePriceNew) * floreSize)
+}else{
+	costUpdate( parseInt(florePriceOld) * floreSize , parseInt(florePriceNew) * floreSize)
+}
+	
+	$('[data-kitchen-flore]').removeClass('selected')
+	$(this).addClass('selected');
+
+})
+
+
+
+
+$('[data-kitchen-tile]').on('click',function(e){
+	$('.kithen-tile-texture').attr('src',$(this).attr('data-kitchen-tile'))
+	
+	//вычисление цены пола 
+var florePriceOld = $('[data-kitchen-tile].selected').attr('data-price')
+var florePriceNew = $(this).attr('data-price')
+if(typeof florePriceOld == 'undefined'){
+	costUpdate( 0 , parseInt(florePriceNew))
+}else{
+	costUpdate( parseInt(florePriceOld) , parseInt(florePriceNew))
+}
+	
+	$('[data-kitchen-tile]').removeClass('selected')
+	$(this).addClass('selected');
+
+})
+
+
+
 
 
 $('[data-door]').on('click',function(e){
@@ -118,6 +163,43 @@ $('[data-door]').on('click',function(e){
 	}
 })
 
+
+$('[data-kitchen-door]').on('click',function(e){
+	$('.kithen-door').attr('src',$(this).attr('data-kitchen-door'))
+
+	var doorPriceOld = $('[data-kitchen-door].selected').attr('data-price')
+	var doorPriceNew = $(this).attr('data-price')
+
+	
+	if(typeof doorPriceOld == 'undefined'){
+		costUpdate( 0 , parseInt(doorPriceNew))
+	}else{
+		costUpdate( parseInt(doorPriceOld) , parseInt(doorPriceNew))
+	}
+
+	$('[data-kitchen-door]').removeClass('selected')
+	$(this).addClass('selected');
+})
+
+
+
+// kitchen-wall
+$('[data-kitchen-wall]').on('click',function(e){
+	$('.kithen-wall').attr('src',$(this).attr('data-kitchen-wall'))
+
+	var doorPriceOld = $('[data-kitchen-wall].selected').attr('data-price')
+	var doorPriceNew = $(this).attr('data-price')
+
+	
+	if(typeof doorPriceOld == 'undefined'){
+		costUpdate( 0 , parseInt(doorPriceNew))
+	}else{
+		costUpdate( parseInt(doorPriceOld) , parseInt(doorPriceNew))
+	}
+
+	$('[data-kitchen-wall]').removeClass('selected')
+	$(this).addClass('selected');
+})
 
 
 $('[data-plinth]').on('click',function(e){
@@ -147,39 +229,18 @@ $('[data-plinth]').on('click',function(e){
 
 
 
-$('[data-step]').on('click',function(e){
-	$('[data-step]').removeClass('active-step')
-	if($(this).attr('data-step')==2){
-		$('.flore-options').addClass('select-flore');
-		$('.door-options').removeClass('select-door');
-		$('.plinth-options').removeClass('select-plinth')
-
-	}
-	if($(this).attr('data-step')==1){
-		$('.flore-options').removeClass('select-flore');
-		$('.door-options').removeClass('select-door');
-		$('.plinth-options').removeClass('select-plinth')
-	}
-	if($(this).attr('data-step')==3){
-		$('.door-options').addClass('select-door');
-		$('[data-step=3] .active-step').removeClass('not-selected');
-		$('.plinth-options').removeClass('select-plinth')
-	}
-
-	if($(this).attr('data-step')==4){
-		$('.plinth-options').addClass('select-plinth')
-		$('.flore-options').removeClass('select-flore')
-		$('.door-options').removeClass('select-door')
-		$('[data-step=4] .active-step').removeClass('not-selected')
-	}
+$('[data-to]').on('click',function(e){
+	console.log(window.curentStage)
+	$('[data-room='+window.curentStage+'] [data-for]').removeClass('select');
+	$('[data-room='+window.curentStage+'] [data-for='+$(this).attr('data-to')+']').addClass('select');
+	$('[data-room='+window.curentStage+'] .calc-object').removeClass('active-step')
 	$(this).addClass('active-step')
+
 })
 
-$('.color-show').on('click',function(e){
-		$('.color-variables').addClass('select-color')
-})
+
 $('.back-btn').on('click',function(e){
-	$('.color-variables').removeClass('select-color')
+	$('.color-variables').closest('.color-variables').removeClass('select');
 })
 
 
@@ -226,11 +287,29 @@ $('.space-size').on('change',function(e){
 })
 
 
+$('.select-room-card').on('click', function(e){
+	$('.select-room-dealog').addClass('hidden');
+	window.curentStage = $(this).attr('data-room-choose')
+		$('[data-room]').addClass('hiden-step');
+		$('[data-room]').attr('data-active',false)
+		console.log(window.curentStage)
+			$('[data-room='+window.curentStage+']').removeClass('hiden-step');
+			$('[data-room='+window.curentStage+']').attr('data-active',true);
+			$('body').css('padding-right',0 + 'px');
+			$('body').removeClass('calc-init');
+
+})
+
+$('.to-room-button').on('click', function(e){
+	$('.select-room-dealog').removeClass('hidden');
+	$('body').css('padding-right',getScrollBarWidth () + 'px');
+	$('body').addClass('calc-init');
+})
+
 $('.start-design').on('click',function(e){
 	if($('.space-size').val()!=''){
 		$('.intro-calc').removeClass('intro-show')
-		$('body').removeClass('calc-init');
-		$('body').css('padding-right',0 + 'px');
+
 	}else{
 		$('.space-size').siblings('.error-tooltip').addClass('error-show')
 		$('.space-size').siblings('.error-tooltip').find('.eroror-message').text($('.space-size').attr('data-error'))

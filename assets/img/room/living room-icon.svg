@@ -1,0 +1,21 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3.82422" y="17.75" width="9.76252" height="7.61728" rx="1.39524" stroke="white" stroke-width="1.5"/>
+<path d="M8.97266 26.1173L8.97266 32.553" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8.97266 32.5529L8.97266 43.2791" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22.3809 42.2065V43.8155" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M25.0605 41.6702V42.7428" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M51.877 41.6702V42.7428" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M54.5586 42.2065V43.8155" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8.97266 29.3351L2.00062 43.2792" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M6.82617 34.1621L8.97141 37.38" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M11.1172 34.1621L8.97194 37.38" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8.97266 29.3351L15.9447 43.2792" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="20.4492" y="28.4762" width="3.86311" height="12.9804" rx="0.858932" stroke="white" stroke-width="1.5"/>
+<rect x="52.627" y="28.4762" width="3.86311" height="12.9804" rx="0.858932" stroke="white" stroke-width="1.5"/>
+<rect x="24.7402" y="24.1858" width="13.5167" height="9.76252" rx="0.858932" stroke="white" stroke-width="1.5"/>
+<rect x="38.6836" y="24.1858" width="13.5167" height="9.76252" rx="0.858932" stroke="white" stroke-width="1.5"/>
+<mask id="path-16-inside-1" fill="white">
+<rect x="23.9902" y="33.6257" width="28.9608" height="8.58097" rx="1.07262"/>
+</mask>
+<rect x="23.9902" y="33.6257" width="28.9608" height="8.58097" rx="1.07262" stroke="white" stroke-width="3" mask="url(#path-16-inside-1)"/>
+</svg>

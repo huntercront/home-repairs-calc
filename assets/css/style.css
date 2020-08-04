@@ -14,7 +14,14 @@ body{
 	margin-left: auto;
 	max-width: 1440px;
 }
-
+.calc-container{
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1640px;
+}
 .c-c{
 	display: flex;
 	align-items: center;
@@ -237,6 +244,139 @@ color: #333333;
 }
 
 
+.repair-calc{
+	position: relative;
+	overflow-x: hidden;
+}
+.calc-outer{
+transition: 300ms ease-in;
+visibility: visible;
+opacity: 1;
+transform: translate(0,0);
+transition-property: visibility,opacity,transform;
+}
+.hiden-step{
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	transform: translate(0%,0);
+}
+
+
+
+/* room-select */
+.select-room-dealog{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 700;
+	background: #ffffff;
+	transition: 200ms ease-in;
+	opacity: 1;
+	visibility: visible;
+	transition-property: opacity,visibility;
+}
+.select-room-dealog.hidden{
+	visibility: hidden;
+	opacity:0;
+}
+.select-room-dealog{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.select-room-cards{
+	display: flex;
+	margin: 0 -4px;
+}
+.select-room-card{
+	display: flex;
+	max-width: 25%;
+	width: 100%;
+	padding: 4px;
+	flex: 0 0 25%;
+	position: relative;
+}
+
+
+.room-card-inner > *{
+	position: relative;
+	z-index: 10;
+}
+.room-card-img{
+	position: absolute;
+	height: 115%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	opacity: .4;
+	z-index: 1;
+	transition: 200ms ease-in;
+	transition-property: opacity;
+}
+.room-card-inner{
+	overflow: hidden;
+	position: relative;
+	padding: 1.5rem;
+	min-height: 50vh;
+	background: #333333;
+	width: 100%;
+}
+.buillder-title.room-card-title,.room-card-descr.buillder-descr{
+	color: #fff;
+	margin-top: 0.5rem;
+}
+.room-card-descr.buillder-descr{
+	color: #fff;
+	opacity: 0.9;
+	font-weight: 400;
+}
+.room-card-button{
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 3rem;
+	font-size: 1.5rem;
+	background: rgba(255, 255, 255,0.3);
+	color: #fff;
+	transition: 200ms ease-in;
+	transition-property: background;
+}
+
+.select-room-card:hover .room-card-button{
+	background: #C49368;
+}
+.select-room-card:hover{
+	cursor: pointer;
+}
+.select-room-card:hover .room-card-img{
+	opacity: 0.7;
+}
+.select-room-header{
+	flex-direction: column;
+}
+.select-room-header{
+	margin-bottom: 2rem;
+}
+.site-calc-logo img{
+	width: 100%;
+	max-width: 200px;
+}
+.select-room-title{
+	text-align: center;
+	max-width: 500px;
+	font-weight: 600;
+	line-height: 1.25;
+	margin-top: 2rem;
+}
+
 /* zoom-btn */
 .zoom-button{
 	background: rgba(0, 0, 0,0.6);
@@ -285,7 +425,7 @@ color: #333333;
 	padding-left: 1.5rem;
 }
 .form-check input[type=checkbox] + label:before {
-	content: "\e909";
+  content: "\e902";
 	font-family: 'icomoon' !important;
 	speak: none;
 	font-style: normal;
@@ -378,7 +518,7 @@ color: #333333;
 }
 .calc-results-inner{
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
 	align-content: center;
 	background: #ffffff;
@@ -387,6 +527,29 @@ color: #333333;
 	position: relative;
 	padding-bottom: 4px;
 }
+.to-room-button{
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    line-height: 1;
+		font-weight: 700;
+		background: #fff;
+		color: #C49368;
+		transition: 200ms ease-in;
+		transition-property: background,transform;
+}
+.to-room-button:hover{
+	background: #fff8f1;
+	cursor: pointer;
+}
+.to-room-button:focus{
+	outline: none;
+}
+.to-room-button .button-text{
+	margin-right: 0rem;
+	margin-left: 0.25rem;
+}
+
 /* progress-btn */
 .progress-btn{
 	font-size: 1rem;
@@ -401,6 +564,36 @@ color: #333333;
 	transition: 200ms ease-in;
 	transition-property: background,transform;
 }
+
+.calc-object{
+	padding: 1rem 0.65rem; 
+	transition: 200ms ease-in;
+	transition-property: background,transform;
+	font-size: 0.9rem;
+	font-weight: 700;
+	outline: none;
+	border: none;
+	background: #ffffff;
+	border-bottom: 1px solid #EFEFEF;
+}
+.calc-object:focus{
+	outline: none;
+}
+.calc-object:hover{
+	background: #fff8f1;
+	cursor: pointer;
+}
+.calc-object:last-child{
+	border-bottom: 1px none;
+}
+
+.calc-object .btn-iner{
+flex-direction: column;
+}
+.calc-object .progress-btn-icon {
+	margin-right: 0;
+}
+
 .progress-btn:hover{
 	background: #fff8f1;
 	cursor: pointer;
@@ -532,13 +725,31 @@ z-index: 10;
 }
 .builder-step{
 	display: flex;
+	position: relative;
+	padding-left: 5rem;
 }
+.calc-objects{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	border-right: 1px solid #EFEFEF;
+	z-index: 700;
+	background: #ffffff;
+}
+.calc-objects-inner{
+	display: flex;
+	flex-direction: column;
+}
+
+
 .builder-options-inner{
 	flex: 0 0 25%;
 	max-width: 25%;
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	min-width: 330px;
 }
 .builder-options{
 	padding-right: 1.25rem;
@@ -569,7 +780,7 @@ z-index: 10;
 }
 
 .texture-options{
-	padding-top: 0.75rem;
+	padding-top: 1.25rem;
 }
 
 /* single-options */
@@ -753,89 +964,121 @@ transform: scale(0.9);
 	height: 1.5rem;
 	margin-right: 0.25rem;
 }
-
-.color-variables{
+.hidden-option{
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 100%;
-	height: inherit;
+	height: 100%;
 	overflow-y: auto;
 	transform: translate(-100%,0);
 	transition: 200ms ease-in;
 	background: #ffffff;
 	overflow-x: hidden;
 	padding-left: 1.5rem;
+	padding-top: 0.75rem;
 	padding-right: 1.25rem;
 	z-index: 200;
 }
-.color-variables.select-color{
+.hidden-option.select{
 	transform: translate(0%,0);
 }
 
-/* flore-options */
-.flore-options{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: inherit;
-	overflow-y: auto;
-	transform: translate(-100%,0);
-	transition: 200ms ease-in;
-	background: #ffffff;
-	overflow-x: hidden;
-	padding-top: 0.75rem;
-	padding-left: 1.5rem;
-	padding-right: 1.25rem;
-	z-index: 250;
-}
-.flore-options.select-flore{
-	transform: translate(0%,0);
-}
 
-/* door-options */
-.door-options{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: inherit;
-	overflow-y: auto;
-	transform: translate(-100%,0);
-	transition: 200ms ease-in;
-	background: #ffffff;
-	overflow-x: hidden;
-	padding-top: 0.75rem;
-	padding-left: 1.5rem;
-	padding-right: 1.25rem;
-	z-index: 250;
-}
-.door-options.select-door{
-	transform: translate(0%,0);
-}
+
+
 /* rc-presets */
 .rc-presets{
-	margin-top: 3rem;
+	margin-top: 5rem;
 }
 
-/* plinth-select */
-.plinth-options{
+
+
+
+
+
+@media(max-width:1200px){
+	.builder-step{
+		flex-direction: column;
+		padding-left: 0;
+	}
+	.builder-render{
+		order: 0;
+		width: 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	.builder-options-inner{
+		order: 2;
+		width: 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	.builder-options{
+		max-width: none;
+	}
+	.flore-texture{
+		position: relative;
+	}
+	.single-option{
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+	.calc-objects{
+		order: 1;
+		position: relative;
+		overflow-y: hidden;
+		overflow-x: auto;
+		border: none;
+	}
+.calc-objects-inner{
+	flex-direction: row;
+	border-bottom: none;
+}
+
+.calc-object  .btn-iner{
+	flex-direction: row;
+}
+.calc-object .progress-btn-icon{
+margin-right: 0.5rem;
+}
+.calc-object{
+	padding:  0.65rem 1rem;
+	border-bottom: none;
+}
+}
+
+
+
+
+/* kitchen */
+.kithen-flore-texture{
 	position: absolute;
 	top: 0;
-	right: 0;
-	width: 100%;
-	height: inherit;
-	overflow-y: auto;
-	transform: translate(-100%,0);
-	transition: 200ms ease-in;
-	background: #ffffff;
-	overflow-x: hidden;
-	padding-top: 0.75rem;
-	padding-left: 1.5rem;
-	padding-right: 1.25rem;
-	z-index: 260;
+	left: 0;
+	z-index:5;
 }
-.plinth-options.select-plinth{
-	transform: translate(0%,0);
+.kithen-wall{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+}
+.kithen-tile-texture{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+.kithen-interier{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 15;
+}
+.kithen-door{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20;
 }
