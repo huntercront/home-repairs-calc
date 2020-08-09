@@ -9,8 +9,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body class="calc-init" >
- <section class="intro-calc intro-show">
+<body class="calc-init">
+ <!-- <section class="intro-calc intro-show">
 		<div class="container">
 			<div class="content">
 		<div class="rc-form">
@@ -121,8 +121,22 @@
 			
 					</div>
 	
-	</section> 
-	
+	</section>  -->
+	<div class="preloader">
+		<div class="preloader-inner">
+			<div class="preloader-container c-c">
+				<div class="preloader-img">
+					<img src="./assets/icons-svg/door.svg" alt="">
+					<img src="./assets/icons-svg/floor.svg" alt="">
+					<img src="./assets/icons-svg/tile.svg" alt="">
+
+				</div>
+				<div class="preloader-progres">
+					<div class="preloader-line"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <section class="select-room">
 	<div class="select-room-dealog">
@@ -171,6 +185,23 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="select-room-card" data-room-choose="3">
+					<div class="room-card-inner">
+						<div class="room-card-icon">
+							<img src="./assets/img/room/bathroom.svg" alt="">
+						</div>
+						<h4 class="buillder-title room-card-title">Санузел</h4>
+						<p class="room-card-descr buillder-descr">
+							Более 12 опций на выбор
+						</p>
+							<img src="./assets/img/room/bathroom.jpg" alt="" class="room-card-img">
+								
+						<div class="room-card-button c-c">
+							<span class="icon-chevron-right" role="img" aria-label="Иконка назад">
+						</div>
+					</div>
+				</div>
 				
 			</div>
 		</div>
@@ -195,9 +226,6 @@
 						</div>
 						<button class="next-choose c-c"><div class="button-text">Далее</div> <div class="btn-icon c-c"><span class="icon-arrow-right" role="img" aria-label="Иконка далее"></span></div></button>
 					</div>
-						<div class="progress-line">
-							<div class="progress-line-inner"></div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -213,7 +241,66 @@
 				<div class="content">
 	
 					<div class="rc-presets">
-	
+						<h2 class="buillder-title rc-presets-title">Готовые стили</h2>
+						<p class="rc-presets-descr buillder-descr">Мы приготовили для вас готовые стили ремонтов.
+							Вы можете самостоятельно менять в них материалы по вашему вкусу.</p>
+	<div class="rc-presets-inner">
+		<div class="rc-presets-card" data-preset="ColdCaramel">
+			<div class="rc-presets-card-inner">
+																<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+				<img src="./assets/img/preset/room-preset-1.jpg" alt="">
+				<h4 class="rc-presets-card-title">
+					Cold Caramel
+				</h4>
+				<p class="preset-price">1 864 824</p>
+
+			</div>
+		</div>
+
+		<div class="rc-presets-card">
+			<div class="rc-presets-card-inner">
+																<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+				<img src="./assets/img/preset/room-preset-2.jpg" alt="">
+				<h4 class="rc-presets-card-title">
+					Cold Caramel
+				</h4>
+				<p class="preset-price">1 864 824</p>
+			</div>
+		</div>
+
+		<div class="rc-presets-card">
+			<div class="rc-presets-card-inner">
+																<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+				<img src="./assets/img/preset/room-preset-3.jpg" alt="">
+				<h4 class="rc-presets-card-title">
+					Cold Caramel
+				</h4>
+				<p class="preset-price">1 864 824</p>
+			</div>
+		</div>
+
+		<div class="rc-presets-card">
+			<div class="rc-presets-card-inner">
+																<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+				<img src="./assets/img/preset/room-preset-4.jpg" alt="">
+				<h4 class="rc-presets-card-title">
+					Cold Caramel
+				</h4>
+				<p class="preset-price">1 864 824</p>
+			</div>
+		</div>
+
+		<div class="rc-presets-card">
+			<div class="rc-presets-card-inner">
+																<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+				<img src="./assets/img/preset/room-preset-5.jpg" alt="">
+				<h4 class="rc-presets-card-title">
+					Cold Caramel
+				</h4>
+				<p class="preset-price">1 864 824</p>
+			</div>
+		</div>
+	</div>
 					</div>
 					<div class="rc-builder">
 						<div class="builder-inner">
@@ -298,7 +385,7 @@
 							<div class="options-outer">
 	
 								<div class="single-option">
-									<div class="single-option-inner" data-price="10000" data-wall="./assets/img/wall/wall-option-texture-3.png">
+									<div class="single-option-inner" data-price="10000" data-wall="./assets/img/wall/wall-option-texture-3.png" data-for-preset="ColdCaramel">
 									<div class="option-img">
 										<img src="./assets/img/wall/miniature/miniature-option-3.jpg" alt="">
 										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -315,10 +402,11 @@
 							<p class="buillder-descr">Плотные обои. Визуально, как стены под покраску.</p>
 							<div class="options-outer">
 	
-								<div class="single-option" data-price="50000">
+								<div class="single-option" data-price="50000" data-wall="./assets/img/wall/wall-option-texture-3.png">
 									<div class="single-option-inner">
 									<div class="option-img">
 										<img src="./assets/img/wall/miniature/miniature-option-3.jpg" alt="">
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
 									</div>
 									<div class="options-descr">
 										<h4>Гладкие обои</h4>
@@ -350,12 +438,27 @@
 										</div>
 									</div>
 									</div>
-	
+
 									<div class="single-option">
 										<div class="single-option-inner" data-color="true">
 										<div class="option-img">
 											<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0H249V156H0V0Z" fill="#E9EADE"></path>
+												<path d="M0 0H249V156H0V0Z" fill="#F6F6F6"></path>
+												</svg>
+												<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+										</div>
+										<div class="options-descr">
+											<h4>Плавающий лес</h4>
+											<p>V484</p>
+										</div>
+									</div>
+									</div>
+	
+									<div class="single-option">
+										<div class="single-option-inner" data-color="true" data-for-preset="ColdCaramel">
+										<div class="option-img">
+											<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M0 0H249V156H0V0Z" fill="#BFB4A5"></path>
 												</svg>
 												<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
 										</div>
@@ -442,7 +545,7 @@
 									</div>
 	
 									<div class="single-option">
-										<div class="single-option-inner" data-color="true">
+										<div class="single-option-inner" da	ta-color="true">
 										<div class="option-img">
 											<svg width="249" height="156" viewBox="0 0 249 156" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M0 0H249V156H0V0Z" fill="#E5DDD4"></path>
@@ -500,7 +603,7 @@
 									</div>
 	
 									<div class="single-option option-wide">
-										<div class="single-option-inner" data-price="420" data-flore="./assets/img/floor/flore-option-1.png">
+										<div class="single-option-inner" data-price="420" data-flore="./assets/img/floor/flore-option-1.png" data-for-preset="ColdCaramel">
 										<div class="option-img">
 										<img src="./assets/img/floor/miniature/miniature-option-1.jpg" alt="">
 												<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -600,7 +703,7 @@
 							<div class="options-outer">
 	
 								<div class="single-option option-wide">
-									<div class="single-option-inner" data-price="4500" data-door="./assets/img/doors/door-option-1.png">
+									<div class="single-option-inner" data-price="4500" data-door="./assets/img/doors/door-option-1.png" data-for-preset="ColdCaramel">
 									<div class="option-img">
 									<img src="./assets/img/doors/miniature/miniature-option-1.jpg" alt="">
 											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -661,7 +764,7 @@
 						<div class="options-outer">
 	
 							<div class="single-option">
-								<div class="single-option-inner" data-price="45" data-plinth="./assets/img/plinth/plinth-option-3.png">
+								<div class="single-option-inner" data-price="65" data-plinth="./assets/img/plinth/plinth-option-3.png" data-for-preset="ColdCaramel">
 									<div class="option-img">
 									<img src="./assets/img/plinth/miniature/plinth-miniature-3.jpg" alt="">
 											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -679,7 +782,7 @@
 	
 	
 							<div class="single-option">
-								<div class="single-option-inner" data-price="45" data-plinth="./assets/img/plinth/plinth-option-4.png">
+								<div class="single-option-inner" data-price="25" data-plinth="./assets/img/plinth/plinth-option-4.png">
 									<div class="option-img">
 									<img src="./assets/img/plinth/miniature/plinth-miniature-4.jpg" alt="">
 											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -696,7 +799,7 @@
 							</div>
 	
 							<div class="single-option">
-								<div class="single-option-inner" data-price="45" data-plinth="./assets/img/plinth/plinth-option-5.png">
+								<div class="single-option-inner" data-price="85" data-plinth="./assets/img/plinth/plinth-option-5.png">
 									<div class="option-img">
 									<img src="./assets/img/plinth/miniature/plinth-miniature-5.jpg" alt="">
 											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -714,7 +817,7 @@
 	
 	
 							<div class="single-option">
-								<div class="single-option-inner" data-price="45" data-plinth="./assets/img/plinth/plinth-option-6.png">
+								<div class="single-option-inner" data-price="105" data-plinth="./assets/img/plinth/plinth-option-6.png">
 									<div class="option-img">
 									<img src="./assets/img/plinth/miniature/plinth-miniature-6.jpg" alt="">
 											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
@@ -742,17 +845,17 @@
 							<div class="builder-render">
 	
 								<div class="builder-render-bg" style="background: rgb(246, 246, 246);"></div>
-								<img src="./assets/img/floor/flore-option-4.png" alt="" class="flore-texture">
-								<img src="./assets/img/render/flore-shadow.png" alt="" class="flore-shadow">
-								<img src="./assets/img/wall/wall-option-texture-2.png" alt="" class="wall-texture">
-								<img src="./assets/img/render/plinth-shadow.png" alt="" class="plinth-shadow">
-								<img src="./assets/img/plinth/plinth-option-5.png" alt="plinth-texture" class="plinth-texture">
-								<img src="./assets/img/render/door-shadow.png" alt="" class="door-shadow">
-								<img src="./assets/img/doors/door-option-3.png" alt="" class="door-texture">
-								<img src="./assets/img/render/lamp.png" alt="" class="design-lamp">
-								<img src="./assets/img/render/flo.png" alt="" class="design-flo">
-								<img src="./assets/img/render/sofa.png" alt="" class="design-sofa">
-								<img src="./assets/img/render/light.png" alt="" class="design-light">
+								<img src="" alt="" class="flore-texture" data-load="./assets/img/floor/flore-option-4.png">
+								<img src="" alt="" class="flore-shadow" data-load="./assets/img/render/flore-shadow.png">
+								<img src="" alt="" class="wall-texture" data-load="./assets/img/wall/wall-option-texture-2.png">
+								<img src="" alt="" class="plinth-shadow" data-load="./assets/img/render/plinth-shadow.png">
+								<img src="" alt="plinth-texture" class="plinth-texture" data-load="./assets/img/plinth/plinth-option-5.png">
+								<img src="" alt="" class="door-shadow" data-load="./assets/img/render/door-shadow.png">
+								<img src="" alt="" class="door-texture" data-load="./assets/img/doors/door-option-3.png">
+								<img src="" alt="" class="design-lamp" data-load="./assets/img/render/lamp.png">
+								<img src="" alt="" class="design-flo" data-load="./assets/img/render/flo.png">
+								<img src="" alt="" class="design-sofa" data-load="./assets/img/render/sofa.png">
+								<img src="" alt="" class="design-light" data-load="./assets/img/render/light.png">
 								<button class="zoom-button c-c"><div class="btn-icon c-c"><span class="icon-maximize-2" role="img" aria-label="Иконка назад"></span></div></button>
 							</div>
 						</div>
@@ -1157,12 +1260,267 @@
 							<div class="builder-render">
 	
 								<div class="builder-render-bg" style="background: #863629;"></div>
-								<img src="" alt="" class="kithen-wall">
-								<img src="./assets/img/kitchen/kitchen-flore/kitchen-flore-1.png" alt="" class="kithen-flore-texture">
+								<img src="" alt="" class="kithen-wall" >
+								<img src="" alt="" class="kithen-flore-texture" data-load="./assets/img/kitchen/kitchen-flore/kitchen-flore-1.png">
 
-								<img src="./assets/img/kitchen/kitchen-tile/kitchen-tile-texture.png" alt="" class="kithen-tile-texture">
-								<img src="./assets/img/kitchen/kitchen-interier/kitchen-interier.png" alt="" class="kithen-interier">
-								<img src="./assets/img/kitchen/kitchen-doore/kitchen-doore-1.png" alt="" class="kithen-door">
+								<img src="" alt="" class="kithen-tile-texture" data-load="./assets/img/kitchen/kitchen-tile/kitchen-tile-1.png">
+								<img src="" alt="" class="kithen-interier" data-load="./assets/img/kitchen/kitchen-interier/kitchen-interier.png">
+								<img src="" alt="" class="kithen-door" data-load="./assets/img/kitchen/kitchen-doore/kitchen-doore-1.png">
+								<button class="zoom-button c-c"><div class="btn-icon c-c"><span class="icon-maximize-2" role="img" aria-label="Иконка назад"></span></div></button>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+		<!-- step-3 -->
+
+		<div class="calc-outer hiden-step" data-room="3" data-active="false">
+			<div class="calc-container">
+				<div class="content">
+	
+					<div class="rc-presets">
+	
+					</div>
+
+
+					<div class="rc-builder">
+						<div class="builder-inner">
+							<div class="builder-step">
+								<div class="calc-objects">
+									<div class="calc-objects-inner">
+									<button class="calc-object active-step" data-to="1">
+										<div class="btn-iner c-c">
+											<div class="progress-btn-icon c-c">
+												<img src="./assets/icons-svg/wall.svg" alt="">
+											</div>
+											Стены
+										</div>
+									</button>
+
+									<button class="calc-object" data-to="bathroom-flore">
+										<div class="btn-iner c-c">
+											<div class="progress-btn-icon c-c">
+												<img src="./assets/icons-svg/floor.svg" alt=""></div>
+												Пол
+										</div>
+									</button>
+
+									<button class="calc-object" data-to="bathroom-tumb">
+										<div class="btn-iner c-c">
+											<div class="progress-btn-icon c-c">
+												<img src="./assets/icons-svg/tumb.svg" alt=""></div>
+												Тумба
+										</div>
+									</button>
+
+
+									
+								</div>
+							</div>
+								<div class="builder-options-inner">
+							<div class="builder-options" >
+								<div class="texture-options">
+								<h3 class="buillder-title">ПВХ-панель</h3>
+								<p class="buillder-descr">Это современный материал, незаменимый при необходимости «сухой» отделки.</p>
+								<div class="options-outer">
+	
+								<div class="single-option">
+									<div class="single-option-inner" data-price="20000" data-bathroom-wall="./assets/img/bathroom/walls/bathroom-wall-3.png">
+									<div class="option-img">
+										<img src="./assets/img/bathroom/walls/th/bathroom-wall-3.jpg" alt="">
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Виниловые обои высокого качества"></span>
+										</div>
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Панель ПВХ Nordside</h4>
+										<p>Морская рапсодия</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option">
+									<div class="single-option-inner" data-price="20000" data-bathroom-wall="./assets/img/bathroom/walls/bathroom-wall-2.png">
+									<div class="option-img">
+										<img src="./assets/img/bathroom/walls/th/bathroom-wall-2.jpg" alt="">
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Виниловые обои высокого качества"></span>
+										</div>
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Панель ПВХ Nordside</h4>
+										<p>Рейка двойная золото</p>
+									</div>
+								</div>
+								</div>
+	
+
+							</div>
+
+
+
+
+								<h3 class="buillder-title">Керамическая плитка</h3>
+								<p class="buillder-descr">Предназначена для облицовки квартир (ванные комнаты, туалеты, прихожие, гостиные, закрытые балконы).</p>
+								<div class="options-outer">
+	
+								<div class="single-option">
+									<div class="single-option-inner" data-price="20000" data-bathroom-wall="./assets/img/bathroom/walls/bathroom-wall-4.png">
+									<div class="option-img">
+										<img src="./assets/img/bathroom/walls/th/bathroom-wall-4.jpg" alt="">
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Виниловые обои высокого качества"></span>
+										</div>
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Cersanit Alba</h4>
+										<p>Темно-бежевая 198x598x8,5 мм</p>
+									</div>
+								</div>
+								</div>
+
+									
+								<div class="single-option">
+									<div class="single-option-inner" data-price="20000" data-bathroom-wall="./assets/img/bathroom/walls/bathroom-wall-1.png">
+									<div class="option-img">
+										<img src="./assets/img/bathroom/walls/th/bathroom-wall-1.jpg" alt="">
+										<div class="adv-descr">
+											<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Виниловые обои высокого качества"></span>
+										</div>
+										<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+									</div>
+									<div class="options-descr">
+										<h4>Cersanit</h4>
+										<p>200x440</p>
+									</div>
+								</div>
+								</div>
+
+
+							</div>
+	
+							</div>
+	
+	
+	
+				
+							<div class="flore-options hidden-option" data-for="bathroom-flore">
+	
+							<h3 class="buillder-title">Керамогранит</h3>
+							<p class="buillder-descr">Искусственный отделочный материал, очень прочный и твёрдый</p>
+							<div class="options-outer">
+		
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="1150" data-bathroom-flore="./assets/img/bathroom/flore/bathroom-flore-1.png">
+									<div class="option-img">
+									<img src="./assets/img/bathroom/flore/th/bathroom-flore-1.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+	
+											<div class="adv-descr">
+												<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Прочный современный материал"></span>
+											</div>
+									</div>
+									<div class="options-descr">
+										<h4>Нефрит-Керамика</h4>
+										<p>Парфюм коричневая</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="1150" data-bathroom-flore="./assets/img/bathroom/flore/bathroom-flore-2.png">
+									<div class="option-img">
+									<img src="./assets/img/bathroom/flore/th/bathroom-flore-2.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+	
+											<div class="adv-descr">
+												<span class="tooltip icon-alert" role="img" aria-label="Иконка описания" data-tooltip="Прочный современный материал"></span>
+											</div>
+									</div>
+									<div class="options-descr">
+										<h4>Нефрит-Керамика</h4>
+										<p>Парфюм коричневая</p>
+									</div>
+								</div>
+								</div>
+	
+	
+							</div>
+
+
+
+
+						</div>
+					<!-- floor-end -->
+	
+						<div class="door-options hidden-option" data-for="bathroom-tumb">
+							<h3 class="buillder-title">Тумба под раковину</h3>
+							<p class="buillder-descr">Начиная от класических и заканчивая современными</p>
+							<div class="options-outer">
+	
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="5200" data-bathroom-tumb="./assets/img/bathroom/tumb/tumb-1.png">
+									<div class="option-img">
+									<img src="./assets/img/bathroom/tumb/th/tumb-1.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+	
+									</div>
+									<div class="options-descr">
+										<h4>BELUX Адажио</h4>
+										<p>600 мм напольная белая</p>
+									</div>
+								</div>
+								</div>
+
+								<div class="single-option option-wide">
+									<div class="single-option-inner" data-price="7000" data-bathroom-tumb="./assets/img/bathroom/tumb/tumb-2.png">
+									<div class="option-img">
+									<img src="./assets/img/bathroom/tumb/th/tumb-2.jpg" alt="">
+											<div class="check-indicator"><div class="check-icon c-c"><span class="icon-check"></span></div></div>
+	
+									</div>
+									<div class="options-descr">
+										<h4>BELUX Марсель</h4>
+										<p>600 мм подвесная белая</p>
+									</div>
+								</div>
+								</div>
+	
+	
+
+	
+						</div>
+					</div>
+
+
+
+					<!-- doors-end -->
+
+
+
+
+
+							</div>
+						</div>
+							<div class="builder-render">
+	
+								<img src="./assets/img/bathroom/flore/bathroom-flore-1.png" alt="" class="bathroom-flore" >
+								<img src="" alt="" class="bathroom-wall" data-load="./assets/img/bathroom/walls/bathroom-wall-1.png">
+								<img src="." alt="" class="bathroom-interier" data-load="/assets/img/bathroom/interier/bathroom-interier.png">
+								<img src="" alt="" class="bathroom-bowl" data-load="./assets/img/bathroom/bowl/bowl-1.png">
+								<img src="" alt="" class="bathroom-bath" data-load="./assets/img/bathroom/bath/bath-1.png">
+								<img src="" alt="" class="bathroom-tumb" data-load="./assets/img/bathroom/tumb/tumb-1.png">
 								<button class="zoom-button c-c"><div class="btn-icon c-c"><span class="icon-maximize-2" role="img" aria-label="Иконка назад"></span></div></button>
 							</div>
 						</div>
@@ -1172,6 +1530,17 @@
 			</div>
 		</div>
 		</section>
+<script>
+	var roomFlore = 24;
+	var roomWalls = 120;
+	var roomPlinth = 20;
+	var kitchenFlore = 7;
+	var kitchenWalls = 40;
+	var kitchenTile = 4;
+	var bathroomFlore = 6;
+	var bathroomWalls = 14;
+</script>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="./assets/js/builder.js"></script>
 	
