@@ -263,6 +263,15 @@ width: 100%;
 	border: 1px solid #c4c4c4;
 	font-weight: 700;
 	width: 100%;
+	box-shadow: 0 0 0 0.5px transparent;
+	transition: 200ms ease-in;
+	transition-property: border,box-shadow;
+	
+}
+.input-wrapper input:focus{
+	border: 1px solid #C49368;
+	box-shadow: 0 0 0 0.5px #C49368;
+	outline: none;
 }
 
 
@@ -281,6 +290,10 @@ width: 100%;
 cursor: pointer;
 background: #fdf2e7;
 }
+.input-number button:focus{
+outline: none;
+box-shadow: 0 0 0 0.5px #C49368;
+	}
 .input-number{
 	border: 1px solid #c4c4c4;
 }
@@ -288,7 +301,9 @@ background: #fdf2e7;
 	border: none;
 	text-align: center;
 }
-
+.input-number input:focus{
+	border: none;
+}
 
 .radio-title,.input-wrapper label{
 	font-size: 0.9rem;
@@ -997,6 +1012,7 @@ transform: scale(0.9);
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	z-index: 100;
 }
 .color-show{
 	width: 100%;
@@ -1342,7 +1358,7 @@ margin-right: 0.5rem;
     height: 2.5rem;
 	}
 	.room-card-img{
-		height: 110%;
+		height: 125%;
 		width: auto;
 	}
 

@@ -433,51 +433,74 @@ $('.to-room-button').on('click', function(e){
 	bodyLock();
 })
 
+
 function presetCalc(presetName,presetAttr,srcFor,factor){
 	var preset = $('['+presetAttr+'].'+presetName);
 	$('['+presetAttr+'].selected').removeClass('selected')
 	var PriceNew = 0;
+	
 	if(presetAttr == 'data-color'){
-		$('[data-room='+window.curentStage+'] '+srcFor).css('background',preset.find('.option-img > svg > path').attr('fill'))
+		$('[data-room='+ window.curentStage + '] ' + srcFor).css('background',preset.find('.option-img > svg > path').attr('fill'))
 		preset.addClass('selected');
 	}else{
-		var PriceNew = parseInt(preset.attr('data-price')*factor)
-		$('[data-room='+window.curentStage+'] '+srcFor).attr('src',preset.attr(presetAttr))
+			PriceNew = parseInt(preset.attr('data-price')) * factor;
+		$('[data-room='+window.curentStage+'] '+ srcFor).attr('src',preset.attr(presetAttr))
 		$('['+presetAttr+']').removeClass('selected')
-	preset.addClass('selected');
+		preset.addClass('selected');
 }
 return PriceNew;
 }
 
+function presetOld(){
+	var PriceOld = 0;
+	if(window.curentStage==1){
+		var PriceOld1 = parseInt($('[data-wall].selected').attr('data-price'))*roomWalls;
+		if (!isNaN( PriceOld1)) {
+			PriceOld = PriceOld + PriceOld1;
+	}
+		var PriceOld2 = parseInt($('[data-flore].selected').attr('data-price'))*roomFlore;
+		if (!isNaN(PriceOld2)) {
+			PriceOld = PriceOld + PriceOld2;
+	}
+		var PriceOld3 = parseInt($('[data-door].selected').attr('data-price'));
+		if (!isNaN(PriceOld3)) {
+			PriceOld = PriceOld + PriceOld3;
+	}
+		var PriceOld4 = parseInt($('[data-plinth].selected').attr('data-price'))*roomPlinth;
+		if (!isNaN(PriceOld4)) {
+			PriceOld = PriceOld + PriceOld4;
+	}
+}
+
+	return PriceOld;
+}
+
+
+
 $('[data-room='+window.curentStage+'] [data-preset]').on('click', function(e){
+
 	console.log($(this).attr('data-preset'))
 	var PresetPrice = 0;
+	var OldPrice = presetOld();
 	if(window.curentStage==1){
 		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-door','.door-texture','1')
-		PresetPrice=parseInt(PresetPrice) +presetCalc($(this).attr('data-preset'),'data-wall','.wall-texture',roomWalls)
+		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-wall','.wall-texture',roomWalls)
 		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-color','.builder-render-bg')
 		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-flore','.flore-texture',roomFlore)
 		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-plinth','.plinth-texture',roomPlinth);
-	
-	}
-	console.log(PresetPrice)
-	$(this).attr('data-price', PresetPrice)
-	var PriceOld = $('[data-room='+window.curentStage+'] [data-preset].selected').attr('data-price');
-	var PriceNew = PresetPrice;
 
-	
-	if(typeof PriceOld == 'undefined'){
-		costUpdate( 0 , parseInt(PriceNew))
-	}else{
-		costUpdate( parseInt(PriceOld) , parseInt(PriceNew))
 	}
-	$('[data-room='+window.curentStage+'] [data-preset]').removeClass('selected');
+		costUpdate( OldPrice,PresetPrice)
+		$('[data-room='+window.curentStage+'] [data-preset]').removeClass('selected');
 		$(this).addClass('selected');
-
 
 })
 
-
+$('.single-option').on('click',function(e){
+	if($('[data-room='+window.curentStage+'] [data-preset]').hasClass('selected')){
+		$('[data-room='+window.curentStage+'] [data-preset]').removeClass('selected')
+	}
+})
 
 $('.start-design').on('click',function(e){
 	if($('.space-size').val()!=''){
