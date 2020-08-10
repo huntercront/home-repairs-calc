@@ -261,8 +261,8 @@ $('[data-kitchen-wall]').on('click',function(e){
 $('[data-plinth]').on('click',function(e){
 	$('.plinth-texture').attr('src',$(this).attr('data-plinth'))
 
-	var PlinthPriceOld = $('[data-plinth].selected').attr('data-price')
-	var PlinthPriceNew = $(this).attr('data-price')
+	var PlinthPriceOld = $('[data-plinth].selected').attr('data-price');
+	var PlinthPriceNew = $(this).attr('data-price');
 
 	
 	if(typeof PlinthPriceOld == 'undefined'){
@@ -450,7 +450,6 @@ return PriceNew;
 }
 
 $('[data-room='+window.curentStage+'] [data-preset]').on('click', function(e){
-	$('.curent-cost').text('0')
 	console.log($(this).attr('data-preset'))
 	var PresetPrice = 0;
 	if(window.curentStage==1){
@@ -458,11 +457,22 @@ $('[data-room='+window.curentStage+'] [data-preset]').on('click', function(e){
 		PresetPrice=parseInt(PresetPrice) +presetCalc($(this).attr('data-preset'),'data-wall','.wall-texture',roomWalls)
 		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-color','.builder-render-bg')
 		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-flore','.flore-texture',roomFlore)
-		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-plinth','.plinth-texture',roomPlinth)
+		PresetPrice=parseInt(PresetPrice) + presetCalc($(this).attr('data-preset'),'data-plinth','.plinth-texture',roomPlinth);
+	
+	}
+	console.log(PresetPrice)
+	$(this).attr('data-price', PresetPrice)
+	var PriceOld = $('[data-room='+window.curentStage+'] [data-preset].selected').attr('data-price');
+	var PriceNew = PresetPrice;
+
+	
+	if(typeof PriceOld == 'undefined'){
+		costUpdate( 0 , parseInt(PriceNew))
+	}else{
+		costUpdate( parseInt(PriceOld) , parseInt(PriceNew))
 	}
 	$('[data-room='+window.curentStage+'] [data-preset]').removeClass('selected');
 		$(this).addClass('selected');
-		costUpdate( 0 , parseInt(PresetPrice))
 
 
 })
