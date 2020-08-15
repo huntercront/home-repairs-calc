@@ -201,6 +201,9 @@ input[type=number]
 .intro-calc .content{
 width: 100%;
 }
+.rc-form{
+	margin-top: 2rem;
+}
 .rc-form-inner{
 	margin-top: 2rem;
 	max-width: 400px;
