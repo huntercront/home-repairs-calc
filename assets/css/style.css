@@ -379,20 +379,29 @@ display: none;
 	background: #ffffff;
 	transition: 200ms ease-in;
 	opacity: 1;
+	overflow-x: hidden;
+	overflow-y: auto;
 	visibility: visible;
 	transition-property: opacity,visibility;
 	z-index: 750;
+
 }
 .select-room-dealog.hidden{
 	visibility: hidden;
 	opacity:0;
 }
-.select-room-dealog{
-	height: 100%;
+
+.select-room-dealog .container{
+	position: relative;
+
+	min-height: calc(100% - (1.75rem * 2));
 	display: flex;
-	justify-content: center;
 	align-items: center;
 }
+.content{
+	width: 100%;
+}
+
 .select-room-cards{
 	display: flex;
 	margin: 0 -4px;
