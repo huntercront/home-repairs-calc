@@ -10,22 +10,72 @@ $(document).ready(function() {
 var scrollWidth = getScrollBarWidth ();
 console.log(scrollWidth)
 
+function seectedResults(){
+	var selectedStr='';
+	selectedStr = selectedStr + 'Площадь  - '+ $('#spacesize').val()+'\n';
+	selectedStr = selectedStr + 'Количество комнат  - '+ $("input[name='answer']:checked").val()+'\n';
+	selectedStr = selectedStr + 'Количество дверей  - '+ $(".total-doors").val()+'\n';
+	if($('#newbuilding').prop('checked')){
+		selectedStr = selectedStr + 'Нужно возвести стены - да'+'\n' ;
+	}
+
+	if($('#oldbuilding').prop('checked')){
+		selectedStr = selectedStr + ' Вторичное жильё. Нужен демонтаж. - да'+'\n' ;
+	}
+
+	selectedStr =selectedStr + 'Комната\n';
+	$( '[data-room=1] .selected' ).each(function( index ) {
+		selectedStr = selectedStr + $(this).find('.options-descr h4').text()+'\n'
+	});
+
+	selectedStr = selectedStr+ '\n\nКухня\n';
+	$( '[data-room=2] .selected' ).each(function( index ) {
+		selectedStr = selectedStr + $(this).find('.options-descr h4').text()+'\n'
+	});
+
+	selectedStr = selectedStr+ '\n\nВанная\n';
+	$( '[data-room=3] .selected' ).each(function( index ) {
+		selectedStr = selectedStr + $(this).find('.options-descr h4').text()+'\n'
+	});
+	selectedStr = selectedStr+ '\n\nДоп опции\n';
+	$( '[data-room=4] .selected' ).each(function( index ) {
+		selectedStr = selectedStr + $(this).find('.options-descr h4').text()+'\n'
+	});
+	return selectedStr;
+}
+
+
 $('body').css('padding-right',getScrollBarWidth () + 'px');
-
-
 	window.curentStage = 1;
-	$('.next-choose').on('click',function(e){
 
+
+	$('.next-choose').on('click',function(e){
+		if(window.curentStage==4){
+			$('.resutl-form').addClass('resutl-enter');
+			bodyLock();
+			$('.curent-cost-result').text($('.curent-cost').text());
+			$('.input-wrapper textarea').val(seectedResults())
+		}
 		if(window.curentStage < $('[data-room]').length){
 		$('[data-room='+window.curentStage+']').addClass('hiden-step');
 		$('[data-room='+window.curentStage+']').attr('data-active',false);
 
 		window.curentStage++;
+		if(window.curentStage==4){
+			LoadingImage($('.rc-option-img [data-load]'));
+		}else{
 		LoadingImage($('[data-room='+window.curentStage+'] .builder-render img[data-load]'));
+	}
+
 		$('[data-room='+window.curentStage+']').removeClass('hiden-step');
 		$('[data-room='+window.curentStage+']').attr('data-active',true)
+		
 	}
 	
+	})
+	$('.close-results').on('click',function(e){	
+		bodyFree();
+		$('.resutl-form').removeClass('resutl-enter');
 	})
 
 
@@ -57,7 +107,11 @@ function costUpdate (oldPrice, newPrice){
 
 
 $('[data-color]').on('click',function(e){
+	if(window.curentStage==2){
+		$('.kitchen-bg > path').attr('fill',$(this).find('.option-img > svg > path').attr('fill'))
+	}else{
 	$('[data-room='+window.curentStage+'] .builder-render-bg').css('background',$(this).find('.option-img > svg > path').attr('fill'))
+}
 	$('[data-room='+window.curentStage+'] [data-color]').removeClass('selected')
 	$(this).addClass('selected');
 
@@ -81,6 +135,15 @@ $('[data-wall]').on('click',function(e){
 	
 
 	$('[data-wall]').removeClass('selected')
+	$(this).addClass('selected');
+
+})
+
+
+
+$('[data-headset]').on('click',function(e){
+	$('.kitchen-heheadset > path').attr('fill',$(this).find('.option-img > svg > path').attr('fill'))
+	$('[data-headset]').removeClass('selected')
 	$(this).addClass('selected');
 
 })
@@ -331,7 +394,7 @@ $('input[type=checkbox]').on('change',function(e){
 })
 
 $('.space-size').on('change',function(e){
-		costUpdate($(this).attr('data-prev')* parseInt($(this).attr('data-price')) , $(this).val() * parseInt($(this).attr('data-price')))
+		costUpdate($(this).attr('data-prev') * preceForRepair , $(this).val() * preceForRepair)
 		console.log($(this).attr('data-prev'))
 		$(this).attr('data-prev', $(this).val())
 
@@ -370,6 +433,7 @@ function preloaderHide(){
 }
 
 function LoadingImage(images){
+	console.log(images)
 	if (images.length!=0){
 		preloaderShow();
 		bodyLock()
@@ -422,10 +486,13 @@ $('.select-room-card').on('click', function(e){
 			$('[data-room='+window.curentStage+']').removeClass('hiden-step');
 			$('[data-room='+window.curentStage+']').attr('data-active',true);
 			bodyFree();
-
+			if(window.curentStage==4){
+				LoadingImage($('.rc-option-img [data-load]'));
+			}else{
 			LoadingImage($('[data-room='+window.curentStage+'] .builder-render img[data-load]'));
-
+		}
 			$('[data-room='+window.curentStage+']').removeClass('hiden-step');
+
 })
 
 $('.to-room-button').on('click', function(e){
@@ -501,6 +568,23 @@ $('.single-option').on('click',function(e){
 		$('[data-room='+window.curentStage+'] [data-preset]').removeClass('selected')
 	}
 })
+
+$('.rc-option-inner').on('click',function(e){
+	console.log('click')
+	console.log()
+	if($(this).hasClass('selected-default')){}
+		else{
+		if($(this).hasClass('selected')){
+			$(this).removeClass('selected')
+			costUpdate(0, - parseInt($(this).attr('data-price')))
+		}
+		else{
+			costUpdate(0,parseInt($(this).attr('data-price')))
+			$(this).addClass('selected')
+		}
+	}
+})
+
 
 $('.start-design').on('click',function(e){
 	if($('.space-size').val()!=''){
